@@ -49,6 +49,7 @@ function addPost(){
     isEdit: true,
     isNew: true
   })
+  scrollBy({ top: window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight), behavior: 'smooth' });
 }
 
 function updateAndCreatePost(post){
