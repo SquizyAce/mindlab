@@ -77,7 +77,7 @@ function updateAndCreatePost(post){
       if(index !== false)
       {
         json.isEdit = false
-        posts.value.splice(index, 1, json)  
+        Object.assign(post, json)
       }
     }); 
 }
