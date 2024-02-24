@@ -42,7 +42,7 @@ async function firstStage(){
 
 function addPost(){
   posts.value.push({
-    id: uuidv4(),
+    id: '',
     title: '',
     body: '',
     userId: 1,
@@ -72,13 +72,8 @@ function updateAndCreatePost(post){
     })
     .then((response) => response.json())
     .then((json) => {
-      let index = posts.value.findIndex(i => i.id == json.id)
-      console.log(index, json)
-      if(index !== false)
-      {
-        json.isEdit = false
-        Object.assign(post, json)
-      }
+      json.isEdit = false
+      Object.assign(post, json)
     }); 
 }
 
@@ -94,12 +89,6 @@ function deletePost(id){
     console.log(index, id)
   })
   
-}
-
-function uuidv4() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-  );
 }
 
 </script>
